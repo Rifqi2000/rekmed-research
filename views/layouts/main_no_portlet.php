@@ -75,6 +75,7 @@ MetronicAsset::register($this);
 
                 <form action="" method="get">
                     <input type="text" placeholder="Search">
+                    <input type="submit" value="Submit">
                 </form>
 
                 
