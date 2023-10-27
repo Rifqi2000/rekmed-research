@@ -66,6 +66,8 @@ MetronicAsset::register($this);
                     </div>
                 </div>
                 <!-- END LOGO -->
+
+                
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->
                 <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
                 <!-- END RESPONSIVE MENU TOGGLER -->
@@ -119,6 +121,7 @@ MetronicAsset::register($this);
             <!-- END HEADER INNER -->
         </div>
         <!-- END HEADER -->
+
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
         <div class="clearfix"> </div>
         <!-- END HEADER & CONTENT DIVIDER -->

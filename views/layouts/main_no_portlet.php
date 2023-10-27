@@ -48,6 +48,7 @@ MetronicAsset::register($this);
 
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">
+            
             <!-- BEGIN HEADER INNER -->
             <div class="page-header-inner ">
                 <!-- BEGIN LOGO -->
@@ -66,12 +67,17 @@ MetronicAsset::register($this);
                         <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
                         
                     </div>
-                        
-                       
+                    
                    
                     
                 </div>
                 <!-- END LOGO -->
+
+                <form action="" method="get">
+                    <input type="text" placeholder="Search">
+                </form>
+
+                
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->
                 
                 
@@ -138,6 +144,7 @@ MetronicAsset::register($this);
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
+            
             <div class="page-sidebar-wrapper">
                 <!-- BEGIN SIDEBAR -->
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->

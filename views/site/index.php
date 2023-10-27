@@ -63,6 +63,7 @@ $this->title = 'Rekam Medis';
                     </div>
                 </div>
             </div>
+            
             <div class="portlet-body">
                 <div class="table-scrollable table-scrollable-borderless">
                     <table class="table table-hover table-light">
