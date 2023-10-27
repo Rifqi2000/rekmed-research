@@ -181,6 +181,7 @@ $this->title = 'Rekam Medis';
                             <th>Alamat</th>
                             <th>Aksi</th>
                         </thead>
+
                         <tbody>
                             <?php foreach($pembayaran as $val): ?>
                                 <tr>
@@ -192,6 +193,7 @@ $this->title = 'Rekam Medis';
                                         <?php 
                                         echo Html::button('Bayar', ['value'=>Url::to(['bayar/create','id'=>utf8_encode(Yii::$app->security->encryptByKey( $val['kunjungan_id'], Yii::$app->params['kunciInggris'] )),'asal'=>'site/index']),'class' => 'btn dark btn-sm btn-outline sbold uppercase modalWindow']);
                                         // echo Html::a('Bayar', Url::to(['bayar/create','id'=>utf8_encode(Yii::$app->security->encryptByKey( $val['kunjungan_id'], Yii::$app->params['kunciInggris'] )),'asal'=>'site/index']),['class' => 'btn dark btn-sm btn-outline sbold uppercase modalWindow']);
+
 
                                         ?>
                                     </td>

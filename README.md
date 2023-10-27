@@ -1,3 +1,20 @@
+# How to install
+- git clone https://github.com/Rifqi2000/rekmed-research.git
+- cd rekmed-research
+- composer install
+- ./yii serve
+
+# Setup database and parameter
+- Create new account
+- Edit config/params.php 'kunciInggris' and 'kunciSerep' to your password
+```
+'kunciInggris' => 'your_password',
+'kunciSerep' => 'your_password',
+```
+- Edit klinik_id in your 'user' table to '108;
+
+
+
 <p align="center">
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
