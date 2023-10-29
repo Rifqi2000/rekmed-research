@@ -2,7 +2,7 @@
 - git clone https://github.com/Rifqi2000/rekmed-research.git
 - cd rekmed-research
 - composer install
-- ./yii serve
+- './yii serve' or 'php yii serve'
 
 # Setup database and parameter
 - Create new account

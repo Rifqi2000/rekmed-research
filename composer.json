@@ -30,7 +30,8 @@
     "kartik-v/yii2-mpdf": "^1.0",
     "yiidoc/yii2-redactor": "^2.0",
     "amnah/yii2-user": "^5.0",
-    "kartik-v/yii2-widget-depdrop": "^1.0"
+    "kartik-v/yii2-widget-depdrop": "^1.0",
+    "elasticsearch/elasticsearch": "^8.10"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.1.0",
@@ -47,7 +48,8 @@
   },
   "config": {
     "allow-plugins": {
-      "yiisoft/yii2-composer": true
+      "yiisoft/yii2-composer": true,
+      "php-http/discovery": true
     },
     "process-timeout": 1800,
     "fxp-asset": {
