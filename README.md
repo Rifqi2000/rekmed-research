@@ -6,11 +6,6 @@
 
 # Setup database and parameter
 - Create new account
-- Edit config/params.php 'kunciInggris' and 'kunciSerep' to your password
-```
-'kunciInggris' => 'your_password',
-'kunciSerep' => 'your_password',
-```
 - Edit klinik_id in your 'user' table to '108;
 
 
