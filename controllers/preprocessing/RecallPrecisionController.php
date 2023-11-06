@@ -4,9 +4,9 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
-use app\models\Result; // Adjust the namespace and model names
-use app\models\Hadits; // to match your Yii application.
-use app\models\Similarity; // Create models for other dependencies if needed.
+use app\models\preprocessing\Result; // Adjust the namespace and model names
+use app\models\preprocessing\Hadits; // to match your Yii application.
+use app\models\preprocessing\Similarity; // Create models for other dependencies if needed.
 
 class RecallPrecisionController extends Controller
 {

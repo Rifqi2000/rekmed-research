@@ -4,13 +4,13 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
-use app\models\Hadits; // Make sure to import your model classes.
-use app\controllers\MainController; // Import other controller classes if needed.
-use app\controllers\RecallPrecisionController; // Import other controller classes if needed.
-use app\controllers\TfidfController; // Import other controller classes if needed.
-use app\models\Jaccard; // Make sure to import your model classes.
-use app\models\Result; // Make sure to import your model classes.
-use app\models\Similarity; // Make sure to import your model classes.
+use app\models\preprocessing\Hadits; // Make sure to import your model classes.
+use app\controllers\preprocessing\MainController; // Import other controller classes if needed.
+use app\controllers\preprocessing\RecallPrecisionController; // Import other controller classes if needed.
+use app\controllers\preprocessing\TfidfController; // Import other controller classes if needed.
+use app\models\preprocessing\Jaccard; // Make sure to import your model classes.
+use app\models\preprocessing\Result; // Make sure to import your model classes.
+use app\models\preprocessing\Similarity; // Make sure to import your model classes.
 
 class ViewController extends Controller
 {

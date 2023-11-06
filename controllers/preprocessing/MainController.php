@@ -4,10 +4,10 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
-use app\models\Similarity; // Adjust the namespace and model names
-use app\models\Jaccard;    // to match your Yii application.
-use app\models\Hadits;
-use app\models\Tfidf; // Create a model for your TF-IDF calculations if not already done.
+use app\models\preprocessing\Similarity; // Adjust the namespace and model names
+use app\models\preprocessing\Jaccard;    // to match your Yii application.
+use app\models\preprocessing\Hadits;
+use app\models\preprocessing\Tfidf; // Create a model for your TF-IDF calculations if not already done.
 
 class MainController extends Controller
 {
