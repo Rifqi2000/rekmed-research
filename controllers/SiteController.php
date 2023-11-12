@@ -23,7 +23,7 @@ use app\models\UserToken;
 use app\models\Hadits; // Make sure to import your model classes.
 use app\controllers\MainController; // Import other controller classes if needed.
 use app\controllers\RecallPrecisionController; // Import other controller classes if needed.
-use app\controllers\TfidfController; // Import other controller classes if needed.
+use app\controllers\CountVecController; // Import other controller classes if needed.
 use app\models\Jaccard; // Make sure to import your model classes.
 use app\models\Result; // Make sure to import your model classes.
 use app\models\Similarity; // Make sure to import your model classes.

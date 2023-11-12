@@ -29,7 +29,7 @@ class MainController extends Controller
         parent::__construct($id, $module, $config);
 
         $this->preprocessing = new PreprocessingController($id, $module, $config);
-        $this->tfidf = new TfidfController($id, $module, $config);
+        $this->tfidf = new CountVecController($id, $module, $config);
         $this->hadits = new Hadits();
         $this->cosine = new Similarity();
         $this->jaccard = new Jaccard();
