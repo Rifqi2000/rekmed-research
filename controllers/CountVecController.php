@@ -9,7 +9,7 @@ use Phpml\FeatureExtraction\TfIdfTransformer;
 use Phpml\FeatureExtraction\TokenCountVectorizer;
 use Phpml\Tokenization\WhitespaceTokenizer;
 
-class TfidfController extends Controller
+class CountVecController extends Controller
 {
     private $docTf;
     private $tfIdfWeight = [];
