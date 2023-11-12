@@ -4,15 +4,16 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
-use app\models\preprocessing\Hadits; // Make sure to import your model classes.
-use app\controllers\preprocessing\MainController; // Import other controller classes if needed.
-use app\controllers\preprocessing\RecallPrecisionController; // Import other controller classes if needed.
-use app\controllers\preprocessing\TfidfController; // Import other controller classes if needed.
-use app\models\preprocessing\Jaccard; // Make sure to import your model classes.
-use app\models\preprocessing\Result; // Make sure to import your model classes.
-use app\models\preprocessing\Similarity; // Make sure to import your model classes.
+use app\models\Hadits; // Make sure to import your model classes.
+use app\controllers\MainController; // Import other controller classes if needed.
+use app\controllers\RecallPrecisionController; // Import other controller classes if needed.
+use app\controllers\TfidfController; // Import other controller classes if needed.
+use app\models\Jaccard; // Make sure to import your model classes.
+use app\models\Result; // Make sure to import your model classes.
+use app\models\Similarity; // Make sure to import your model classes.
+use app\models\SearchForm;
 
-class ViewController extends Controller
+class SearchController extends Controller
 {
     private $keyword = [];
     private $total_cos;
@@ -26,16 +27,31 @@ class ViewController extends Controller
     private $averageCosine;
     private $averageJaccard;
     private $similarity;
-
-    public function init()
+    public $results;
+    
+    public function __construct($id, $module, $config = [])
     {
-        $this->similarity = new MainController(); // Initialize your controller instances.
-        $this->results = new RecallPrecisionController(); // Initialize your controller instances.
+        parent::__construct($id, $module, $config);
+    
+        $this->similarity = new MainController($id, $module, $config);
+        $this->results = new RecallPrecisionController($id, $module, $config);
     }
+    
+    
+    // public function init()
+    // {
+    //     $this->similarity = new MainController(); // Initialize your controller instances.
+    //     $this->results = new RecallPrecisionController(); // Initialize your controller instances.
+    // }
 
     public function actionIndex()
     {
-        return $this->render('search');
+        $searchModel = new SearchForm();
+
+        return $this->render('index', [
+            'model' => $searchModel,
+        ]);
+        // return $this->render('index');
     }
 
     public function actionResult()

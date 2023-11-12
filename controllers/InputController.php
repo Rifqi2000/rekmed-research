@@ -5,7 +5,7 @@ namespace app\controllers;
 use Yii;
 use yii\web\Controller;
 use yii\web\Response;
-use app\models\preprocessing\Hadits; // Adjust the namespace and model name to match your Yii application
+use app\models\Hadits; // Adjust the namespace and model name to match your Yii application
 
 class InputController extends Controller
 {

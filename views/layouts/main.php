@@ -66,11 +66,14 @@ MetronicAsset::register($this);
                     </div>
                 </div>
                 <!-- END LOGO -->
-                <form action="" method="get">
+
+                <!-- SEARCH BAR -->
+                <form action="<?= Url::to(['search/index']) ?>" method="get">
                     <input type="text" placeholder="Search">
                     <!-- <input type="submit" value="Submit"> -->
-                    <?= Html::button('Check', ['value'=>Url::to(['pasien/create','asal'=>'site/index']),'class' => 'btn btn-circle blue-sunglo modalWindow']) ?>
+                    <?= Html::submitButton('Submit', ['value'=>Url::to(['pasien/create','asal'=>'site/index']),'class' => 'btn btn-circle green-sunglo modalWindow']) ?>
                 </form>
+                <!-- SEARCH BAR -->
 
                 
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->

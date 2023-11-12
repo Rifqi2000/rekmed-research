@@ -8,31 +8,7 @@ use miloschuman\highcharts\Highcharts;
 
 $this->title = 'Rekam Medis';
 ?>
-<?php
-    Modal::begin([
-            'header' => '<h4>Search Engine</h4>',
-            'options' => [
-                'id' => 'kartik-modal',
-                'tabindex' => false // important for Select2 to work properly
-            ],
-        ]);
 
-    // echo "<div id='modalContent'>Rifqi Mulya Kiswanto</div>";
-    echo '
-    <div class="portlet-body">
-        <div class="table-scrollable table-scrollable-borderless">
-            <table class="table table-hover table-light">
-                <thead>
-                    <th>Search</th>
-                </thead>
-            </table>
-        </div>
-    </div>
-    ';
-
-    Modal::end();
-
-?>
 <?php if($full): ?>
 <div class="alert alert-block alert-danger fade in">
     <h4 class="alert-heading">Rekam Medis Penuh!</h4>

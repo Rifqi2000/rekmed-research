@@ -6,12 +6,25 @@ $db     = require __DIR__ . '/db.php';
 $config = [
     'id'         => 'basic',
     'basePath'   => dirname(__DIR__),
+    'controllerNamespace' => 'app\controllers',
     'bootstrap'  => ['log'],
     'aliases'    => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                // Aturan routing untuk NewPageController
+                // Tambahkan aturan routing lain jika diperlukan
+                'preprocessing/<controller:[\w-]+>/<action:[\w-]+>' => 'preprocessing/<controller>/<action>',
+                'search' => 'search/search/index'
+            ],
+        ],
+
         'request'      => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'A3L6p1xWm1uD74xDgoPAxCZWp8cJc3Qn',

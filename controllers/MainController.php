@@ -4,10 +4,10 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
-use app\models\preprocessing\Similarity; // Adjust the namespace and model names
-use app\models\preprocessing\Jaccard;    // to match your Yii application.
-use app\models\preprocessing\Hadits;
-use app\models\preprocessing\Tfidf; // Create a model for your TF-IDF calculations if not already done.
+use app\models\Similarity; // Adjust the namespace and model names
+use app\models\Jaccard;    // to match your Yii application.
+use app\models\Hadits;
+use app\models\Tfidf; // Create a model for your TF-IDF calculations if not already done.
 
 class MainController extends Controller
 {
@@ -23,14 +23,26 @@ class MainController extends Controller
     public $cosine;
     public $jaccard;
 
-    public function init()
+
+    public function __construct($id, $module, $config = [])
     {
-        $this->preprocessing = new PreprocessingController();
-        $this->tfidf = new TfidfController();
+        parent::__construct($id, $module, $config);
+
+        $this->preprocessing = new PreprocessingController($id, $module, $config);
+        $this->tfidf = new TfidfController($id, $module, $config);
         $this->hadits = new Hadits();
         $this->cosine = new Similarity();
         $this->jaccard = new Jaccard();
     }
+    
+    // public function init()
+    // {
+    //     $this->preprocessing = new PreprocessingController();
+    //     $this->tfidf = new TfidfController();
+    //     $this->hadits = new Hadits();
+    //     $this->cosine = new Similarity();
+    //     $this->jaccard = new Jaccard();
+    // }
 
     public function actionInit($keyword, $similarity)
     {

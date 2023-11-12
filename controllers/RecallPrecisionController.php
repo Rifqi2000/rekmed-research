@@ -4,12 +4,13 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
-use app\models\preprocessing\Result; // Adjust the namespace and model names
-use app\models\preprocessing\Hadits; // to match your Yii application.
-use app\models\preprocessing\Similarity; // Create models for other dependencies if needed.
+use app\models\Result; // Adjust the namespace and model names
+use app\models\Hadits; // to match your Yii application.
+use app\models\Similarity; // Create models for other dependencies if needed.
 
 class RecallPrecisionController extends Controller
 {
+    
     private $TP_cos;
     private $FP_cos;
     private $FN_cos;
@@ -31,13 +32,22 @@ class RecallPrecisionController extends Controller
     public $time_cos;
     public $time_jac;
     private $similarity;
-    public $result;
+    public $results;
 
-    public function init()
+    public function __construct($id, $module, $config = [])
     {
-        $this->similarity = new MainController();
-        $this->result = new Result;
+        parent::__construct($id, $module, $config);
+    
+        $this->similarity = new MainController($id, $module, $config);
+        $this->results = new Result();
     }
+
+    // public function init()
+    // {
+    //     $this->similarity = new MainController();
+    //     $this->result = new Result;
+    // }
+    
 
     public function actionResultCosine($keyword, $total, $time, $rank)
     {

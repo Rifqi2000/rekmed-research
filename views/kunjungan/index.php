@@ -70,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
              'template' => '{process} {view} {delete}',
              'buttons' => [
                 'process' => function($url,$model) {
-                    return ($model->status=='antri') ? 
+                    return ($model->status=='') ? 
                      Html::a('<span class="fa fa-stethoscope"></span>', Url::to(['rekam-medis/create','kunjungan_id'=>utf8_encode(Yii::$app->security->encryptByKey( $model->kunjungan_id, Yii::$app->params['kunciInggris'] ))]), [
                             'class' => 'btn btn-default',
                             'title' => Yii::t('yii', 'Proses'),
@@ -78,7 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         ]) : "";  
                 },
                 'delete' => function($url,$model) {
-                    return ($model->status=='antri') ? 
+                    return ($model->status=='') ? 
                      Html::a('<span class="fa fa-trash-o"></span>', $url, [
                             'class' => 'btn btn-default',
                             'title' => Yii::t('yii', 'Hapus'),
