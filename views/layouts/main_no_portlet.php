@@ -76,7 +76,7 @@ MetronicAsset::register($this);
 
                 <!-- SEARCH BAR -->
                 <form action="<?= Url::to(['search/index']) ?>" method="get">
-                    <input type="text" placeholder="Search">
+                    <input type="text" placeholder="Search" name="q">
                     <!-- <input type="submit" value="Submit"> -->
                     <?= Html::submitButton('Submit', ['value'=>Url::to(['pasien/create','asal'=>'site/index']),'class' => 'btn btn-circle green-sunglo modalWindow']) ?>
                 </form>
