@@ -20,15 +20,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php
 $form = ActiveForm::begin([
-    'action' => ['controller/result'], // Ganti 'controller' sesuai dengan nama controller yang Anda gunakan
+    'action' => ['search/result'], // Ganti 'controller' sesuai dengan nama controller yang Anda gunakan
     'method' => 'post',
 ]);
 ?>
 
-<?= $form->field($model, 'search')->textInput(['placeholder' => 'Search'])->label(false) ?>
+<?= $form->field($search, 'search')->textInput(['placeholder' => 'Masukan Keyword'])->label(false) ?>
 
 <div class="form-group">
     <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
 </div>
 
 <?php ActiveForm::end(); ?>
+

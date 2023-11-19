@@ -46,10 +46,11 @@ class SearchController extends Controller
 
     public function actionIndex()
     {
-        $searchModel = new SearchForm();
+        $search = new SearchForm();
+
 
         return $this->render('index', [
-            'model' => $searchModel,
+            'search' => $search,
         ]);
         // return $this->render('index');
     }

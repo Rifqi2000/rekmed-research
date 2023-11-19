@@ -67,7 +67,7 @@ class ViewController extends Controller
             $cos = $this->cos;
             $jac = $this->jac;
             $totalCos = $this->total_cos;
-            $totalJac = $this->total_jac;
+            $totalJac = $this->total_jac
             $timeCosine = $this->time_cosine;
             $timeJaccard = $this->time_jaccard;
             $keywords = $this->similarity->preprocessingQuery($searchKeyword);

@@ -80,15 +80,15 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        
         $searchModel = new SearchForm();
-
         $sisa = Kunjungan::getSisaRm();
         $dokter= new Dokter();
         $complete_profile = $dokter->isNothingEmpty();
-
+        
         $model = new RekamMedis();
         $full = $model->reachMaxRm() ? true : false;
-
+        
         $this->layout = 'main_no_portlet';
         $Bayar = new Bayar();
         $total_hari = $Bayar->getTotalPemasukanHariIni(Yii::$app->user->identity->klinik_id);
@@ -434,8 +434,6 @@ class SiteController extends Controller
 
     public function actionResult()
     {
-        $searchModel = new SearchForm();  // Instantiate the SearchForm model here.
-    
         $request = Yii::$app->request;
         $searchKeyword = $request->post('search');
     
