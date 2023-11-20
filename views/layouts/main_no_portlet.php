@@ -78,27 +78,17 @@ MetronicAsset::register($this);
 
                 <div class="row">
                     <div class="col-lg-5">
-                            <?php $form = ActiveForm::begin(['id' => 'search-form']); ?>
 
-                            <form action="<?= Url::to(['search/index']) ?>" method="get">
+                            <form action="<?= Url::to(['search/result']) ?>" method="get">
                                 <input type="text" placeholder="Search" name="q">
                                 
                                 <!-- <input type="submit" value="Submit"> -->
-                                <?= Html::submitButton('Submit', ['value'=>Url::to(['pasien/create','asal'=>'site/index']),'class' => 'btn btn-circle green-sunglo modalWindow']) ?>
+                                <?= Html::submitButton('Submit',['class' => 'btn btn-circle green-sunglo modalWindow']) ?>
                             </form>
-
-
-
-                            <?php ActiveForm::end(); ?>
                     </div>
                 </div>
 
-                <form action="<?= Url::to(['search/index']) ?>" method="get">
-                    <input type="text" placeholder="Search" name="q">
-                    
-                    <!-- <input type="submit" value="Submit"> -->
-                    <?= Html::submitButton('Submit', ['value'=>Url::to(['pasien/create','asal'=>'site/index']),'class' => 'btn btn-circle green-sunglo modalWindow']) ?>
-                </form>
+                
                 <!-- SEARCH BAR -->
                 
 

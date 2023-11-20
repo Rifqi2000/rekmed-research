@@ -7,9 +7,9 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\helpers\FileHelper;
 
-class PreprocessingController extends Controller
+class PreprocessingController 
 {
-    public function actionInit($text, $tes)
+    public function init($text, $tes)
     {
         $casefolding = $this->casefolding($text);
         $tokenizing = $this->tokenizing($casefolding);
@@ -39,7 +39,8 @@ class PreprocessingController extends Controller
 
     private function stopword($texts)
     {
-        $stopword = FileHelper::readFile('stopwords-id.txt');
+        // $stopword = file_get_contents('stopwords-id.txt');
+        $stopword = file_get_contents('');
         $texts = array_filter($texts, function ($text) use ($stopword) {
             return !in_array($text, preg_split('/\s+/', $stopword));
         });

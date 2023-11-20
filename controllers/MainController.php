@@ -9,7 +9,7 @@ use app\models\Jaccard;    // to match your Yii application.
 use app\models\Hadits;
 use app\models\Tfidf; // Create a model for your TF-IDF calculations if not already done.
 
-class MainController extends Controller
+class MainController
 {
     private $praprosesDocument = [];
     private $praprosesQuery = [];
@@ -26,7 +26,7 @@ class MainController extends Controller
 
     public function __construct($id, $module, $config = [])
     {
-        parent::__construct($id, $module, $config);
+        // parent::__construct($id, $module, $config);
 
         $this->preprocessing = new PreprocessingController($id, $module, $config);
         $this->tfidf = new CountVecController($id, $module, $config);
@@ -44,7 +44,7 @@ class MainController extends Controller
     //     $this->jaccard = new Jaccard();
     // }
 
-    public function actionInit($keyword, $similarity)
+    public function init($keyword, $similarity)
     {
         $this->preprocessingQuery($keyword);
         $this->preprocessingDocument();
@@ -68,6 +68,7 @@ class MainController extends Controller
     {
         $praprosesQuery = $this->preprocessing->init($keyword, 'text');
         $this->praprosesQuery = $praprosesQuery;
+        var_dump($this->praprosesQuery);
         return $this->praprosesQuery;
     }
 
@@ -87,6 +88,7 @@ class MainController extends Controller
     {
         $similarity = $this->tfidf->init($this->praprosesDocument, $this->praprosesQuery, "jaccard");
         $this->jaccard_result = $similarity;
+        var_dump($this->jaccard_result);
     }
 
     private function rankingCosine()
@@ -103,6 +105,7 @@ class MainController extends Controller
     public function rankingJaccard()
     {
         $doc = $this->jaccard_result;
+        var_dump($doc);exit;
         arsort($doc);
         foreach ($doc as $key => $val) {
             if ($doc[$key] > 0) {

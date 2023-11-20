@@ -57,8 +57,11 @@ class SearchController extends Controller
 
     public function actionResult()
     {
+        
         $request = Yii::$app->request;
-        $searchKeyword = $request->post('search');
+        // var_dump($request->get('q'));
+        $searchKeyword = $request->get('q');
+        
 
         if ($searchKeyword !== null) {
             $this->keyword = $searchKeyword;
@@ -151,16 +154,27 @@ class SearchController extends Controller
         ]);
     }
 
-    public function actionJaccard()
-    {
-        // Implement your jaccard action.
-        // Calculate jaccard similarity and return the view.
+    public function jaccard(){
+    
+        $executionStartTime = microtime(true);
+        $halaman = 'jaccard';
+        $perPage = 10;
+    
+        $this->rank_jaccard = $this->similarity->init($this->keyword, $halaman);
+        var_dump($this->rank_jaccard);exit;
+    
+        $rank_jac = implode(',',array_fill(0, count($this->rank_jaccard), '?'));
+        $keyword = $this->keyword;
+        $this->total_jac = count($this->rank_jaccard);
+        //print_r($this->rank_jaccard);
 
-        return $this->render('jaccard', [
-            'jac' => $jac,
-            'totalJac' => $totalJac,
-            'timeJaccard' => $timeJaccard,
-        ]);
+
+        $this->jac = $this->similarity->hadits->whereIn('id', $this->rank_jaccard)->orderByRaw("field(id,{$rank_jac})", $this->rank_jaccard)->paginate($perPage, ['*'], 'page2');
+
+        $executionEndTime = microtime(true);
+        $this->time_jaccard = $executionEndTime - $executionStartTime;
+
+        $this->results->resultJaccard($this->keyword, $this->total_jac, $this->time_jaccard, $this->rank_jaccard);
     }
 
     public function actionDeleteResult()
