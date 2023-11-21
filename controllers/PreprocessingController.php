@@ -39,8 +39,7 @@ class PreprocessingController
 
     private function stopword($texts)
     {
-        // $stopword = file_get_contents('stopwords-id.txt');
-        $stopword = file_get_contents('');
+        $stopword = file_get_contents('stopwords-id.txt');
         $texts = array_filter($texts, function ($text) use ($stopword) {
             return !in_array($text, preg_split('/\s+/', $stopword));
         });

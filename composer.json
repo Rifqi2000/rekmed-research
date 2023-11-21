@@ -32,7 +32,8 @@
     "amnah/yii2-user": "^5.0",
     "kartik-v/yii2-widget-depdrop": "^1.0",
     "elasticsearch/elasticsearch": "^8.10",
-    "php-ai/php-ml": "^0.10.0"
+    "php-ai/php-ml": "^0.10.0",
+    "sastrawi/sastrawi": "^1"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.1.0",
