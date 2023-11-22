@@ -4,6 +4,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\Url;
 
 $this->title                   = 'Search Result';
 $this->params['breadcrumbs'][] = $this->title;
@@ -17,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <code><?= __FILE__ ?></code>
 </div>
+
 
 <?php
 $form = ActiveForm::begin([
@@ -32,4 +34,6 @@ $form = ActiveForm::begin([
 </div>
 
 <?php ActiveForm::end(); ?>
+                                
+                            
 
