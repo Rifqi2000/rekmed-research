@@ -17,6 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="profile-details">
 
             <div class="profile-item">
+                <div class="profile-label">Nama Pasien</div>
+                <div class="profile-value"><?= $pasienData->nama ?></div>
+            </div>
+
+            <div class="profile-item">
                 <div class="profile-label">Pasien MR</div>
                 <div class="profile-value"><?= $pasienData->mr ?></div>
             </div>
@@ -24,11 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="profile-item">
                 <div class="profile-label">Klinik ID</div>
                 <div class="profile-value"><?= $pasienData->klinik_id ?></div>
-            </div>
-
-            <div class="profile-item">
-                <div class="profile-label">Nama Pasien</div>
-                <div class="profile-value"><?= $pasienData->nama ?></div>
             </div>
 
             <div class="profile-item">
