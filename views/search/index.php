@@ -11,31 +11,25 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <h3>Hasil pencarian untuk: <?= $searchKeyword ?></h3>
-<div class="site-about">
-
-
-    <p>
-        This is the Search page. You may modify the following file to customize its content
-    </p>
-
-    <table>
-        <tr>
-            <th>RM ID</th>
+    <table class="table table-hover table-light">
+        <thead>
+        <th>RM ID</th>
             <th>Nama Pasien</th>
             <th>Diagnosis Nama</th>
             <th>Nama Dokter</th>
             <th>Cosine</th>
-        </tr>
-
-        <?php foreach ($responseData as $rmId => $data): ?>
-            <tr>
-                <td><?= $data['rm_id'] ?></td>
-                <td><?= $data['pasien_nama'] ?></td>
-                <td><?= $data['diagnosis_nama'] ?></td>
-                <td><?= $data['dokter_nama'] ?></td>
-                <td><?= $data['cosine'] ?></td>
-            </tr>
-        <?php endforeach; ?>
+        </thead>
+        <tbody>
+            <?php foreach ($responseData as $rmId => $data): ?>
+                <tr>
+                    <td><?= $data['rm_id'] ?></td>
+                    <td><?= Html::a($data['pasien_nama'], ['patient/view', 'id' => $data['pasien_mr']]) ?></td>
+                    <td><?= $data['diagnosis_nama'] ?></td>
+                    <td><?= Html::a($data['dokter_nama'], ['doctor/view', 'id' => $data['dokter_user_id']]) ?></td>
+                    <td><?= $data['cosine'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
     </table>
 
     <code><?= __FILE__ ?></code>
