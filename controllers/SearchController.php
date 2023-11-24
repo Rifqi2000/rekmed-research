@@ -4,7 +4,8 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
-use app\models\SearchForm;
+use app\models\Pasien;
+use app\models\Dokter;
 
 class SearchController extends Controller
 {
@@ -33,12 +34,8 @@ class SearchController extends Controller
         curl_close($ch);
     
         if ($statusCode == 200) {
-            // Handle the response from Flask as needed
-            $responseData = json_decode($response, true);
-    
             // Access data from Flask
-            // $searchKeywordFromYii = $responseData['status'];
-            // $dokterData = $responseData['dokter'];
+            $responseData = json_decode($response, true);    
             // Sort the array based on 'cosine' in descending order
             uasort($responseData, function ($a, $b) {
             return $b['cosine'] <=> $a['cosine'];
@@ -49,44 +46,20 @@ class SearchController extends Controller
             return "Hidupkan flask";
         }
     }
-    
-    
-    
 
-    public function actionResult()
+    public function actionPasien($mr)
     {
-        
-        $request = Yii::$app->request;
-        // var_dump($request->get('q'));
-        $searchKeyword = $request->get('q');
-        
+        // Assuming Pasien is the ActiveRecord model for the pasien table
+        $pasienData = Pasien::find()->where(['mr' => $mr])->one();
 
-        if ($searchKeyword !== null) {
-            $this->keyword = $searchKeyword;
-            $this->jaccard();
-            $this->cosine();
+        return $this->render('pasien', ['pasienData' => $pasienData]);
+    }
 
-            $cos = $this->cos;
-            $jac = $this->jac;
-            $totalCos = $this->total_cos;
-            $totalJac = $this->total_jac;
-            $timeCosine = $this->time_cosine;
-            $timeJaccard = $this->time_jaccard;
-            $keywords = $this->similarity->preprocessingQuery($searchKeyword);
+    public function actionDokter($user_id)
+    {
+        // Assuming Dokter is the ActiveRecord model for the dokter table
+        $dokterData = Dokter::find()->where(['user_id' => $user_id])->all();
 
-            $this->results->input($searchKeyword);
-
-            return $this->render('result', [
-                'cos' => $cos,
-                'jac' => $jac,
-                'total_cos' => $totalCos,
-                'total_jac' => $totalJac,
-                'time_cosine' => $timeCosine,
-                'time_jaccard' => $timeJaccard,
-                'keywords' => $keywords,
-            ]);
-        } else {
-            return 'Masukan Keyword';
-        }
+        return $this->render('dokter', ['dokterData' => $dokterData]);
     }
 }
