@@ -56,9 +56,9 @@ MetronicAsset::register($this);
                 
                 <a href="https://api.whatsapp.com/send?phone=6281228944870" target = "_blank">Hubungi kami </a> 
                 
+                
                 <div class="page-logo">
-                    
-                    
+                
                     
                     <a href="http://www.rekmed.com" target = "_blank">
                         <?= Html::img('@web/metronic/layouts/layout4/img/logo-light.png',['alt'=>'logo','class'=>'logo-default','style'=>'height:50px;margin-top:10px']) ?>
@@ -73,40 +73,13 @@ MetronicAsset::register($this);
                     
                 </div>
                 <!-- END LOGO -->
-
-                <!-- SEARCH BAR -->
-
-                <div class="row">
-                    <div class="col-lg-5">
-
-                            <form action="<?= Url::to(['search/result']) ?>" method="get">
-                                <input type="text" placeholder="Search" name="q">
-                                
-                                <!-- <input type="submit" value="Submit"> -->
-                                <?= Html::submitButton('Submit',['class' => 'btn btn-circle green-sunglo modalWindow']) ?>
-                            </form>
-                    </div>
-                </div>
-
-                
-                <!-- SEARCH BAR -->
-                
-
                 
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-                
-                
-                
-                
                 <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
                 <!-- END RESPONSIVE MENU TOGGLER -->
                 
-        
-                
-                
                 <!-- BEGIN PAGE TOP -->
-                <div class="page-top">
-                    
+                <div class="page-top">                    
                     <!-- BEGIN TOP NAVIGATION MENU -->
                     <div class="top-menu">
                         <ul class="nav navbar-nav pull-right">
@@ -148,6 +121,15 @@ MetronicAsset::register($this);
                     </div>
                     <!-- END TOP NAVIGATION MENU -->
                 </div>
+
+                <!-- SEARCH BAR -->
+                <div class="nav">
+                    <form method="get" action="<?= Yii::$app->urlManager->createUrl(['search/index']) ?>">
+                        <input type="text"  class="form-control" placeholder="Search" name="q" style="width:400px;">
+                    </form>
+                </div>     
+                <!-- SEARCH BAR -->
+                
                 <!-- END PAGE TOP -->
             </div>
             <!-- END HEADER INNER -->

@@ -67,15 +67,6 @@ MetronicAsset::register($this);
                 </div>
                 <!-- END LOGO -->
 
-                <!-- SEARCH BAR -->
-                <form action="<?= Url::to(['search/index']) ?>" method="get">
-                    <input type="text" placeholder="Search" name="q">
-                    <!-- <input type="submit" value="Submit"> -->
-                    <?= Html::submitButton('Submit', ['value'=>Url::to(['pasien/create','asal'=>'site/index']),'class' => 'btn btn-circle green-sunglo modalWindow']) ?>
-                </form>
-                <!-- SEARCH BAR -->
-
-                
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->
                 <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
                 <!-- END RESPONSIVE MENU TOGGLER -->
@@ -124,6 +115,15 @@ MetronicAsset::register($this);
                     </div>
                     <!-- END TOP NAVIGATION MENU -->
                 </div>
+                
+                <!-- SEARCH BAR -->
+                <div class="nav">
+                    <form method="get" action="<?= Yii::$app->urlManager->createUrl(['search/index']) ?>">
+                        <input type="text"  class="form-control" placeholder="Search" name="q" style="width:400px;">
+                    </form>
+                </div>     
+                <!-- SEARCH BAR -->
+
                 <!-- END PAGE TOP -->
             </div>
             <!-- END HEADER INNER -->

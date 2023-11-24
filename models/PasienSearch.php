@@ -18,7 +18,7 @@ class PasienSearch extends Pasien
     public function rules()
     {
         return [
-            [['mr', 'nama', 'no_nik', 'tanggal_lahir', 'jk', 'alamat', 'no_telp', 'pekerjaan', 'penanggung_jawab', 'created', 'modified', 'user_input', 'user_modified'], 'safe'],
+            [['mr', 'nama', 'tanggal_lahir', 'jk', 'alamat', 'no_telp', 'pekerjaan', 'penanggung_jawab', 'created', 'modified', 'user_input', 'user_modified','no_nik'], 'safe'],
             [['klinik_id'], 'integer'],
         ];
     }
