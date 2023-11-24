@@ -6,6 +6,7 @@ use Yii;
 use yii\web\Controller;
 use app\models\Pasien;
 use app\models\Dokter;
+use app\models\RekamMedis;
 
 class SearchController extends Controller
 {
@@ -51,8 +52,9 @@ class SearchController extends Controller
     {
         // Assuming Pasien is the ActiveRecord model for the pasien table
         $pasienData = Pasien::find()->where(['mr' => $mr])->one();
+        $rekamMedis = RekamMedis::find()->where(['mr' => $mr])->one();
 
-        return $this->render('pasien', ['pasienData' => $pasienData]);
+        return $this->render('pasien', ['pasienData' => $pasienData, 'rekamMedis' => $rekamMedis]);
     }
 
     public function actionDokter($user_id)

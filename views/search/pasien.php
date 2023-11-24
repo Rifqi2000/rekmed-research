@@ -57,6 +57,65 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php endif; ?>
 </div>
 
+<div class="profile-container">
+    <h3>Rekam Medis</h3>
+
+    <?php if ($rekamMedis !== null): ?>
+        <div class="profile-details">
+
+            <div class="profile-item">
+                <div class="profile-label">Tekanan Darah</div>
+                <div class="profile-value"><?= $rekamMedis->tekanan_darah ?></div>
+            </div>
+
+            <div class="profile-item">
+                <div class="profile-label">Nadi</div>
+                <div class="profile-value"><?= $rekamMedis->nadi ?></div>
+            </div>
+
+            <div class="profile-item">
+                <div class="profile-label">Respirasi Rate</div>
+                <div class="profile-value"><?= $rekamMedis->respirasi_rate ?></div>
+            </div>
+
+            <div class="profile-item">
+                <div class="profile-label">Suhu</div>
+                <div class="profile-value"><?= $rekamMedis->suhu ?></div>
+            </div>
+            
+            <div class="profile-item">
+                <div class="profile-label">Berat Badan</div>
+                <div class="profile-value"><?= $rekamMedis->berat_badan ?></div>
+            </div>
+
+            <div class="profile-item">
+                <div class="profile-label">Tinggi Badan</div>
+                <div class="profile-value"><?= $rekamMedis->tinggi_badan ?></div>
+            </div>
+            
+            <div class="profile-item">
+                <div class="profile-label">BMI</div>
+                <div class="profile-value"><?= $rekamMedis->bmi ?></div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Keluhan Utama</div>
+                <div class="profile-value"><?= nl2br($rekamMedis->keluhan_utama) ?></div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Anamnesis</div>
+                <div class="profile-value"><?= nl2br($rekamMedis->anamnesis) ?></div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Hasil Penunjang</div>
+                <div class="profile-value"><?= nl2br($rekamMedis->hasil_penunjang) ?></div>
+            </div>
+
+        </div>
+    <?php else: ?>
+        <p>No data found</p>
+    <?php endif; ?>
+</div>
+
 <style>
     .profile-container {
         /* max-width: 600px; */
