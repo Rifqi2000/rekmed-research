@@ -27,8 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
             <div class="profile-item">
-                <div class="profile-label">Klinik ID</div>
-                <div class="profile-value"><?= $pasienData->klinik_id ?></div>
+                <div class="profile-label">Klinik</div>
+                <div class="profile-value"><?= $pasienData->klinik_id ?> - <?= $pasienData->klinik->klinik_nama ?></div>
             </div>
 
             <div class="profile-item">
@@ -99,15 +99,39 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="profile-item">
                 <div class="profile-label">Keluhan Utama</div>
-                <div class="profile-value"><?= nl2br($rekamMedis->keluhan_utama) ?></div>
+                <div class="profile-value"><?= $rekamMedis->keluhan_utama ?></div>
             </div>
+
+            <div class="profile-item">
+                <div class="profile-label">Diagnosis</div>
+                <div class="profile-value">
+                    <?php foreach ($rekamMedis->rmDiagnoses as $rmDiagnosis): ?>
+                        <?= $rmDiagnosis->nama_diagnosis ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
             <div class="profile-item">
                 <div class="profile-label">Anamnesis</div>
-                <div class="profile-value"><?= nl2br($rekamMedis->anamnesis) ?></div>
+                <div class="profile-value"><?= $rekamMedis->anamnesis ?></div>
             </div>
+
             <div class="profile-item">
-                <div class="profile-label">Hasil Penunjang</div>
-                <div class="profile-value"><?= nl2br($rekamMedis->hasil_penunjang) ?></div>
+                <div class="profile-label">Obat</div>
+                <div class="profile-value">
+                    <?php foreach ($rekamMedis->rmObats as $rmObat): ?>
+                        <?= $rmObat->nama_obat ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+            <div class="profile-item">
+                <div class="profile-label">Tindakan</div>
+                <div class="profile-value">
+                    <?php foreach ($rekamMedis->rmTindakans as $rmTindakan): ?>
+                        <?= $rmTindakan->nama_tindakan ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
 
         </div>

@@ -10,7 +10,7 @@ $this->title                   = 'Data Dokter';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<?php foreach ($dokterData as $dokter): ?>
+<?php foreach ($dokterData as $index => $dokter): ?>
 <div class="profile-container">
     <h3>Profil Dokter</h3>
 
@@ -38,8 +38,21 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
             <div class="profile-item">
+                <div class="profile-label">Spesialis</div>
+                <?php if ($dokterOther !== null): ?>
+                    <div class="profile-value">
+                        <?= $dokterOther->spesialisasi->nama ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+            <div class="profile-item">
                 <div class="profile-label">Alamat</div>
-                <div class="profile-value"><?= $dokter->alamat ?></div>
+                <?php if ($dokterOther !== null): ?>
+                    <div class="profile-value">
+                    <?= $dokter->alamat ?>, <?= $dokterOther->kota->kokab_nama ?>
+                    </div>
+                <?php endif; ?>
             </div>
             
             <div class="profile-item">

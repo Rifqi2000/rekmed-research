@@ -51,8 +51,15 @@ class SearchController extends Controller
     public function actionPasien($mr)
     {
         // Assuming Pasien is the ActiveRecord model for the pasien table
-        $pasienData = Pasien::find()->where(['mr' => $mr])->one();
-        $rekamMedis = RekamMedis::find()->where(['mr' => $mr])->one();
+        $pasienData = Pasien::find()
+        ->where(['mr' => $mr])
+        ->joinWith(['klinik'])
+        ->one();
+        // $rekamMedis = RekamMedis::find()->where(['mr' => $mr])->one();
+        $rekamMedis = RekamMedis::find()
+        ->where(['mr' => $mr])
+        ->joinWith(['rmObats', 'rmDiagnoses', 'rmTindakans'])
+        ->one();
 
         return $this->render('pasien', ['pasienData' => $pasienData, 'rekamMedis' => $rekamMedis]);
     }
@@ -61,7 +68,11 @@ class SearchController extends Controller
     {
         // Assuming Dokter is the ActiveRecord model for the dokter table
         $dokterData = Dokter::find()->where(['user_id' => $user_id])->all();
+        $dokterOther = Dokter::find()
+        ->where(['user_id' => $user_id])
+        ->joinWith(['spesialisasi', 'kota'])
+        ->one();
 
-        return $this->render('dokter', ['dokterData' => $dokterData]);
+        return $this->render('dokter', ['dokterData' => $dokterData, 'dokterOther' => $dokterOther]);
     }
 }
