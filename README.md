@@ -10,3 +10,11 @@
 
 # Search bar
 To use the search function, clone this [repository](https://github.com/muftialroaz/rekmed-flask) and follow the readme.md.
+
+## Authors
+
+  - **Mufti Alfarokhul Azam**
+  - **Rifqi Mulya Kiswanto**
+  - **Ananda Farhan Herdian**
+  - **Nisrina Hanifa Setiono**
+  - **Mochammad Itmamul Wafa**
